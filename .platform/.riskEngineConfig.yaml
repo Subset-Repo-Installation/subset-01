@@ -1,0 +1,27 @@
+riskThreshold: 50
+automatedReleaseApproved: true
+useGithubEvents: true
+ignoredFiles:
+  - "ignoredFiles/**"
+riskInputs:
+  - name: changedFiles
+    matchChangesGlobPatterns:
+      "changedFiles/lowRisk/**": "low"
+      "changedFiles/medRisk/**": "medium"
+      "changedFiles/highRisk/**": "high"
+    # requireChangesGlobPatterns:
+    # Uncomment line above and add required changes for testing here...
+  - name: codeAnalysisAlerts
+  - name: colophonStatus
+  - name: contentfulBlocks
+    contentfulBlocksMatchPatterns:
+      - directoryPattern: "contentfulBlocks/**"
+        directoryNamePrefix: "Block*"
+  - name: deployTarget
+  - name: gitBranchProtection
+  - name: innersource
+  - name: linesChanged
+  - name: prDescription
+    prTemplatePath: ".github/pull_request_template.md"
+  - name: semanticCommit
+  - name: testCoverage
